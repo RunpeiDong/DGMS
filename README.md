@@ -41,7 +41,7 @@ Before running the code, you can specify the path for datasets in `config.py`, o
 We have provided a simple SHELL script to train a 4-bit `ResNet-18` with `DGMS`. Run:
 
 ```shell
-$ sh train_imgnet.sh
+$ sh tools/train_imgnet.sh
 ```
 
 ### Inference on ImageNet
@@ -53,7 +53,7 @@ To inference compressed models on ImageNet, you only need to follow 2 steps:
 * **Step-2**: Run the inference SHELL script we provide:
 
   ```shell
-  $ sh validation.sh
+  $ sh tools/validation.sh
   ```
 
 ## Citation
