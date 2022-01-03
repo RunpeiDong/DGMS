@@ -1,22 +1,10 @@
 # DGMS
 
-This is the code of the paper *Finding the Task-Optimal Low-Bit Sub-Distribution in Deep Neural Networks*.
+This is the code of the paper "[Finding the Task-Optimal Low-Bit Sub-Distribution in Deep Neural Networks](https://arxiv.org/abs/2112.15139)".
 
 ## Installation
 
-Our code works with Python 3.8.3 and the following packages are required:
-
-*  [PyTorch](https://pytorch.org/) 1.6.0
-
-* Torchvison 0.7.0
-
-* TensorboardX
-* Pillow
-* graphviz
-* pydot
-* kmeans-pytorch
-
-We recommend to use [Anaconda](https://www.anaconda.com/), and you can install the dependencies by running:
+Our code works with Python 3.8.3. we recommend to use [Anaconda](https://www.anaconda.com/), and you can install the dependencies by running:
 
 ```shell
 $ python3 -m venv env
@@ -58,6 +46,8 @@ To inference compressed models on ImageNet, you only need to follow 2 steps:
 
 ## Citation
 
+If you find our work useful in your research, please consider citing:
+
 ```tex
 @article{dong2021finding,
       title={Finding the Task-Optimal Low-Bit Sub-Distribution in Deep Neural Networks}, 
@@ -71,4 +61,4 @@ To inference compressed models on ImageNet, you only need to follow 2 steps:
 
 ## License
 
-DGMS is released under the [Apache 2.0 license](./LICENSE).  See the LICENSE file for more details.
+DGMS is released under the Apache 2.0 license.  See the [LICENSE](./LICENSE) file for more details.
