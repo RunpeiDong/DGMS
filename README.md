@@ -59,11 +59,13 @@ To inference compressed models on ImageNet, you only need to follow 2 steps:
 ## Citation
 
 ```tex
-@article{Dong2021,
-	author    = {Dong, Runpei and Tan, Zhanhong and Wu, Mengdi and Zhang, Linfeng and Ma, Kaisheng},
-	title     = {Finding the Task-Optimal Low-Bit Sub-Distribution in Deep Neural Networks},
-	journal   = {ArXiv preprint},
-	year      = {2021},
+@article{dong2021finding,
+      title={Finding the Task-Optimal Low-Bit Sub-Distribution in Deep Neural Networks}, 
+      author={Runpei Dong and Zhanhong Tan and Mengdi Wu and Linfeng Zhang and Kaisheng Ma},
+      year={2021},
+      eprint={2112.15139},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 ```
 
