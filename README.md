@@ -12,7 +12,7 @@ $ source env/bin/activate
 (env) $ python3 -m pip install -r requirements.txt
 ```
 
-### How to Run
+## How to Run
 
 The main procedures are written in script `main.py`, please run the following command for instructions:
 
