@@ -11,6 +11,7 @@ import torch.nn.init as init
 import config as cfg
 from utils.cluster import kmeans
 from utils.lr_scheduler import get_scheduler
+from sklearn.mixture import GaussianMixture
 
 __all__ = ['get_mean_and_std', 'init_params', 'mkdir_p', 'AverageMeter', 'cluster_weights', 'get_optimizer', 'resume_ckpt']
 
@@ -66,7 +67,7 @@ def cluster_weights(weights, n_clusters):
         [n_clusters-1] initial region saliency obtained by k-means algorthm
     """
     flat_weight = weights.view(-1, 1).cuda()
-    _tol = 1e-15
+    _tol = 1e-11
     if cfg.IS_NORMAL is True:
         print("skip k-means")
         tmp = torch.rand(n_clusters-1).cuda()
@@ -90,6 +91,36 @@ def cluster_weights(weights, n_clusters):
     sigma_zero = sigma_initialization[zero_center_idx]
     sigma_initialization = sigma_initialization[torch.arange(region_saliency.size(0)).cuda() != zero_center_idx]    
 
+    pi_initialization = pi_initialization[torch.arange(region_saliency.size(0)).cuda() != zero_center_idx]
+    region_saliency = region_saliency[torch.arange(region_saliency.size(0)).cuda() != zero_center_idx] # remove zero component center
+    return region_saliency, pi_initialization, pi_zero, sigma_initialization, sigma_zero
+
+@torch.no_grad()
+def cluster_weights_em(weights, n_clusters):
+    """ Initialization of GMM with EM algorithm, note this procedure may bring
+    different initialization results, and the results may be slightly different.
+    Args:
+        weights:[weight_size]
+        n_clusters: 1 + 2^i = K Gaussian Mixture Component number
+    Returns:
+        [n_clusters-1] initial region saliency obtained by k-means algorthm
+    """
+    flat_weight = weights.view(-1, 1).contiguous().detach().numpy()
+    _tol = 1e-5
+    if cfg.IS_NORMAL is True:
+        print("skip k-means")
+        tmp = torch.rand(n_clusters-1).cuda()
+        return tmp, tmp , 0.5, tmp, 0.01
+    # construct GMM using EM algorithm
+    gm = GaussianMixture(n_components=n_clusters, random_state=0, tol=_tol).fit(flat_weight)
+    region_saliency = torch.from_numpy(gm.means_).view(-1).cuda()
+    pi_initialization = torch.from_numpy(gm.weights_).cuda()
+    sigma_initialization = torch.from_numpy(gm.covariances_).view(-1).sqrt().cuda()
+    
+    zero_center_idx = torch.argmin(torch.abs(region_saliency))
+    pi_zero = pi_initialization[zero_center_idx]
+    sigma_zero = sigma_initialization[zero_center_idx]
+    sigma_initialization = sigma_initialization[torch.arange(region_saliency.size(0)).cuda() != zero_center_idx] 
     pi_initialization = pi_initialization[torch.arange(region_saliency.size(0)).cuda() != zero_center_idx]
     region_saliency = region_saliency[torch.arange(region_saliency.size(0)).cuda() != zero_center_idx] # remove zero component center
     return region_saliency, pi_initialization, pi_zero, sigma_initialization, sigma_zero

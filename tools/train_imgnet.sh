@@ -1,4 +1,4 @@
-DATASET="--train-dir /mount/data/ImageNet/train/ --val-dir /mount/data/ImageNet/val/ -d imagenet --num-classes 1000"
+DATASET="--train-dir Path2DatasetImageNet/train/ --val-dir Path2DatasetImageNet/val/ -d imagenet --num-classes 1000"
 GENERAL="--lr 2e-5 --batch-size 256 --test-batch-size 256 --epochs 60 --workers 4 --base-size 256 --crop-size 224"
 INFO="--checkname resnet18_4bit --lr-scheduler one-cycle"
 MODEL="--network resnet18 --mask --K 16 --weight-decay 5e-4"

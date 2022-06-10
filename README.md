@@ -1,6 +1,11 @@
 # DGMS
 
-This is the code of the paper "[Finding the Task-Optimal Low-Bit Sub-Distribution in Deep Neural Networks](https://arxiv.org/abs/2112.15139)".
+Created by [Runpei Dong](https://runpeidong.com/)\*, [Zhanhong Tan](https://www.zhanhongtan.com/)\*, [Mengdi Wu](), [Linfeng Zhang](https://scholar.google.com.hk/citations?user=AK9VF30AAAAJ&hl=en), and [Kaisheng Ma](http://group.iiis.tsinghua.edu.cn/~maks/leader.html).
+
+[[arXiv]](https://arxiv.org/abs/2112.15139)
+
+This repository contains the code release of the paper **Finding the Task-Optimal Low-Bit Sub-Distribution in Deep Neural Networks** (ICML 2022).
+
 
 ## Installation
 
@@ -11,7 +16,6 @@ $ python3 -m venv env
 $ source env/bin/activate
 (env) $ python3 -m pip install -r requirements.txt
 ```
-
 ## How to Run
 
 The main procedures are written in script `main.py`, please run the following command for instructions:
@@ -44,18 +48,20 @@ To inference compressed models on ImageNet, you only need to follow 2 steps:
   $ sh tools/validation.sh
   ```
 
+## Q-SIMD
+
+The [TVM](https://github.com/apache/tvm) based Q-SIMD codes can be download from [Google Drive](https://drive.google.com/file/d/1hGeXXdHetGKZKSd4dp7xTSRxjWXgPkjc/view?usp=sharing).
+
 ## Citation
 
 If you find our work useful in your research, please consider citing:
 
 ```tex
-@article{dong2021finding,
-      title={Finding the Task-Optimal Low-Bit Sub-Distribution in Deep Neural Networks}, 
-      author={Runpei Dong and Zhanhong Tan and Mengdi Wu and Linfeng Zhang and Kaisheng Ma},
-      year={2021},
-      eprint={2112.15139},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@inproceedings{dong2021finding,
+  title={Finding the Task-Optimal Low-Bit Sub-Distribution in Deep Neural Networks},
+  author={Dong, Runpei and Tan, Zhanhong and Wu, Mengdi and Zhang, Linfeng and Ma, Kaisheng},
+  booktitle={Proceedings of the International Conference on Machine Learning (ICML)},
+  year={2022}
 }
 ```
 
