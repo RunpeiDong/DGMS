@@ -1,8 +1,10 @@
-# DGMS
+# Differentiable Gaussian Mixture Weight Sharing Network Quantization, ICML 2022 Spotlight
+> [**Finding the Task-Optimal Low-Bit Sub-Distribution in Deep Neural Networks**](https://proceedings.mlr.press/v162/dong22a.html), ICML 2022<br>
+> [Runpei Dong](https://runpeidong.com/)\*, [Zhanhong Tan](https://www.zhanhongtan.com/)\*, [Mengdi Wu](), [Linfeng Zhang](https://scholar.google.com.hk/citations?user=AK9VF30AAAAJ&hl=en), and [Kaisheng Ma](http://group.iiis.tsinghua.edu.cn/~maks/leader.html) <br>
 
-Created by [Runpei Dong](https://runpeidong.com/)\*, [Zhanhong Tan](https://www.zhanhongtan.com/)\*, [Mengdi Wu](), [Linfeng Zhang](https://scholar.google.com.hk/citations?user=AK9VF30AAAAJ&hl=en), and [Kaisheng Ma](http://group.iiis.tsinghua.edu.cn/~maks/leader.html).
+Created by [Runpei Dong](https://runpeidong.com/)\*, [Zhanhong Tan](https://www.zhanhongtan.com/)\*, [Mengdi Wu](https://scholar.google.com.hk/citations?user=F9EN5zgAAAAJ&hl=en&oi=sra), [Linfeng Zhang](http://group.iiis.tsinghua.edu.cn/~maks/linfeng/index.html), and [Kaisheng Ma](http://group.iiis.tsinghua.edu.cn/~maks/leader.html).
 
-[[arXiv]](https://arxiv.org/abs/2112.15139)
+[PMLR](https://proceedings.mlr.press/v162/dong22a.html) | [arXiv](https://arxiv.org/abs/2112.15139) | [Models](https://drive.google.com/drive/folders/1rQJLAbP8gb5ZIUyIjEVHof0euyhsVGu4?usp=sharing)
 
 This repository contains the code release of the paper **Finding the Task-Optimal Low-Bit Sub-Distribution in Deep Neural Networks** (ICML 2022).
 
